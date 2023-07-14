@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "target": "es2016",
+    "noEmit": true,
+    "noEmitOnError": true,
+    "outDir": "dist",
+    "sourceMap": true,
+    /* Modules */
+    "module": "commonjs" /* Specify what module code is generated. */,
+    "baseUrl": "" /* Base directory to resolve non-absolute module names. */,
+    "paths": {
+      "@controllers/*": ["src/controllers/*"],
+      "@svgs/*": ["src/assets/svgs/*"],   
+      "@images/*": ["src/assets/images/*"],  
+      "@models/*": ["src/models/*"],
+      "@validations/*": ["src/validations/*"],
+      "@middleware/*":["src/middleware/*"],
+      "@socket_io/*": ["src/socket_io/*"]
+    }, 
+    "rootDir": ".", // Means current directory where tsconfig.json file is
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "forceConsistentCasingInFileNames": true /* Ensure that casing is correct in imports. */,
+    /* Type Checking */
+    "strict": true,
+    "skipLibCheck": true /* Skip type checking all .d.ts files. */
+  },
+}

@@ -1,0 +1,13 @@
+{
+  "require": "ts-node/register",
+  "recursive": true,
+  "reporter": "mocha-multi-reporters",
+  "reporterOptions": {
+    "reporterEnabled": "spec, mocha-junit-reporter",
+    "mochaJunitReporterReporterOptions": {
+      "mochaFile": "unit.xml",
+      "mochaFileTitle": "Unit Tests",
+      "xmlVersion": "1.0"
+    }
+  }
+}

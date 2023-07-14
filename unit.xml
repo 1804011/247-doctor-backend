@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="0.5400" tests="2" failures="1">
+  <testsuite name="Root Suite" timestamp="2023-07-05T06:45:15" tests="0" time="0.0000" failures="0">
+  </testsuite>
+  <testsuite name="Feature Flag API" timestamp="2023-07-05T06:45:16" tests="1" file="/Users/Dipro/Artics/247-Doctor/repos/247-core-backend/src/tests/feature_flag.spec.ts" time="0.2360" failures="0">
+    <testcase name="Feature Flag API should create a new feature flag, assert the response, and retrieve all feature flags" time="0.2360" classname="should create a new feature flag, assert the response, and retrieve all feature flags">
+    </testcase>
+  </testsuite>
+  <testsuite name="User API" timestamp="2023-07-05T06:45:16" tests="1" file="/Users/Dipro/Artics/247-Doctor/repos/247-core-backend/src/tests/user.spec.ts" time="0.3040" failures="1">
+    <testcase name="User API should create a new user, assert the response, and delete the user" time="0.3040" classname="should create a new user, assert the response, and delete the user">
+      <failure message="expected &apos;Authenticate&apos; to have property &apos;user&apos;" type="AssertionError"><![CDATA[AssertionError: expected 'Authenticate' to have property 'user'
+    at Context.<anonymous> (src/tests/user.spec.ts:52:26)
+    at Generator.next (<anonymous>)
+    at fulfilled (src/tests/user.spec.ts:5:58)
+    at processTicksAndRejections (internal/process/task_queues.js:95:5)]]></failure>
+    </testcase>
+  </testsuite>
+</testsuites>

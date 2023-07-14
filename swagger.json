@@ -1,0 +1,246 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "247-Doctor-API-v1.0.0",
+    "description": "Providing medical services all over the country"
+  },
+  "paths": {
+    "/api/user/register-user": {
+      "post": {
+        "summary": "Register a new user",
+        "description": "Endpoint to register a new user.",
+        "requestBody": {
+          "description": "User data",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "phone_number": {
+                    "type": "string",
+                    "default": "+15104705368"
+                  },
+                  "userType": {
+                    "type": "string",
+                    "default": "doctor"
+                  },
+                  "full_name": {
+                    "type": "string",
+                    "default": "john doe"
+                  },
+                  "password": {
+                    "type": "string",
+                    "default": "Qwerty@123"
+                  }
+                },
+                "required": [
+                  "phone_number",
+                  "userType",
+                  "full_name",
+                  "password"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "User registered successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "user": {
+                      "$ref": "#/components/schemas/User"
+                    },
+                    "token": {
+                      "type": "string",
+                      "default": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NDRkZWUwOTg5ZTc0MWY1MDE5MjI2ZjMiLCJpYXQiOjE2ODI4Mjg4MTAsImV4cCI6MTY4NDAzODQxMH0.DW83NPSY4ATrAfvtsl9bMjYr5Z20aYK-spbyoHhnyJA"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "User": {
+        "type": "object",
+        "properties": {
+          "userType": {
+            "type": "string",
+            "example": "doctor OR patient"
+          },
+          "password": {
+            "type": "string",
+            "example": "$2b$10$ZMC86GbBrjUORQ2BA9.py.2dRKLP19sOeHK8NCYKc5FKKeQNRYiYy"
+          },
+          "phone_number": {
+            "type": "string",
+            "example": "+15104705368"
+          },
+          "full_name": {
+            "type": "string",
+            "example": "john doe"
+          },
+          "timezone": {
+            "type": "object",
+            "example": {}
+          },
+          "is_profile_created": {
+            "type": "boolean",
+            "example": false
+          },
+          "is_information_completed": {
+            "type": "boolean",
+            "example": false
+          },
+          "profile_pic": {
+            "type": "object",
+            "example": {}
+          },
+          "is_active": {
+            "type": "boolean",
+            "example": true
+          },
+          "_id": {
+            "type": "string",
+            "example": "644def268a0e20f038b7f94c"
+          },
+          "otp": {
+            "type": "string",
+            "example": "388537"
+          },
+          "is_verified": {
+            "type": "boolean",
+            "example": false
+          },
+          "__v": {
+            "type": "number",
+            "example": 0
+          },
+          "payment_details": {
+            "type": "null",
+            "example": null
+          },
+          "doctor": {
+            "type": "object",
+            "properties": {
+              "user_id": {
+                "type": "string",
+                "example": "644def268a0e20f038b7f94c"
+              },
+              "is_personal_profile_created": {
+                "type": "boolean",
+                "example": false
+              },
+              "is_professional_profile_created": {
+                "type": "boolean",
+                "example": false
+              },
+              "likes": {
+                "type": "array",
+                "example": []
+              },
+              "medical_certificate": {
+                "type": "object",
+                "example": {}
+              },
+              "gov_id": {
+                "type": "object",
+                "properties": {
+                  "gov_id_front": {
+                    "type": "object",
+                    "example": {}
+                  },
+                  "gov_id_back": {
+                    "type": "object",
+                    "example": {}
+                  }
+                }
+              },
+              "is_availability_details_completed": {
+                "type": "boolean",
+                "example": false
+              },
+              "is_bank_details_completed": {
+                "type": "boolean",
+                "example": false
+              },
+              "bank_details": {
+                "type": "object",
+                "properties": {
+                  "is_verified": {
+                    "type": "boolean",
+                    "example": false
+                  }
+                }
+              },
+              "_id": {
+                "type": "string",
+                "example": "644def268a0e20f038b7f94e"
+              },
+              "__v": {
+                "type": "number",
+                "example": 0
+              },
+              "availability": {
+                "type": "object",
+                "properties": {
+                  "slots": {
+                    "type": "null",
+                    "example": null
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
